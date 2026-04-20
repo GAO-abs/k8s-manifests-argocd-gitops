@@ -12,10 +12,10 @@ spec:
   template:
     metadata:
       labels:
-        app: date-service
+        app: admin-dashboard
     spec:
       containers:
-      - name: date-service
+      - name: admin-dashboard
         image: swr.af-south-1.myhuaweicloud.com/george/admin-dashboard:0cc7939797813fab8f9ed44a05bba1b3ec2b5d3d
         ports:
         - containerPort: 80
