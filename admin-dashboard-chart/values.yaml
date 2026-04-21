@@ -4,7 +4,7 @@ image:
   registry: swr.af-south-1.myhuaweicloud.com
   org: george
   name: admin-dashboard
-  tag: "0cc7939797813fab8f9ed44a05bba1b3ec2b5d3d"
+  tag: "3962c98e77b4c94f7ed84ab36e986783078c9e1c"
   pullPolicy: IfNotPresent
 
 imagePullSecrets:
