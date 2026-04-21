@@ -1,0 +1,25 @@
+replicaCount: 1
+
+image:
+  registry: swr.af-south-1.myhuaweicloud.com
+  org: george
+  name: admin-dashboard
+  tag: "0cc7939797813fab8f9ed44a05bba1b3ec2b5d3d"
+  pullPolicy: IfNotPresent
+
+imagePullSecrets:
+  - name: default-secret
+
+resources:
+  requests:
+    cpu: "100m"
+    memory: "128Mi"
+  limits:
+    cpu: "200m"
+
+service:
+  port: 8081
+  targetPort: 80
+  type: ClusterIP
+
+containerPort: 80
