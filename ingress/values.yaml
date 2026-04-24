@@ -1,0 +1,9 @@
+# This is the configuration for installing nginx
+controller:
+  service:
+    type: LoadBalancer
+    annotations:
+      kubernetes.io/elb.id: "d91694d7-e299-41c0-953d-5570a80ba015"  
+      kubernetes.io/elb.ip: "122.8.133.27"
+      kubernetes.io/elb.class: "performance"
+      kubernetes.io/elb.port: "80"

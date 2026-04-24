@@ -1,0 +1,18 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: admin-dashboard-ingress
+  namespace: default
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: admin-board.geoajdemos.com.ng
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: admin-dashboard-app
+            port:
+              number: 80   # change if your service uses another port
