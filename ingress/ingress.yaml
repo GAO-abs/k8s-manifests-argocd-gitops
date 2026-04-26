@@ -1,10 +1,24 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: admin-dashboard-ingress
-  namespace: default
+  name: ingress-demo
+  annotations:
+    kubernetes.io/elb.id: d91694d7-e299-41c0-953d-5570a80ba015
+    kubernetes.io/elb.ip: 122.8.133.27
+    kubernetes.io/elb.class: performance
+
+    # 🔹 ELB listener configuration (HTTP/HTTPS)
+    kubernetes.io/elb.listen-ports: '443'
+
 spec:
-  ingressClassName: nginx
+  ingressClassName: cce   # 👈 IMPORTANT: Huawei LoadBalancer ingress uses CCE class
+
+  tls:
+  - hosts:
+    - admin-board.geoajdemos.com.ng
+    - eshop.geoajdemos.com.ng
+    secretName: wildcard-geoademos-tls
+
   rules:
   - host: admin-board.geoajdemos.com.ng
     http:
@@ -15,4 +29,15 @@ spec:
           service:
             name: admin-dashboard-app
             port:
-              number: 80   # change if your service uses another port
+              number: 80
+
+  - host: eshop.geoajdemos.com.ng
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: ecommerce-app
+            port:
+              number: 80
