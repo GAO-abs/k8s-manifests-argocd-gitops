@@ -4,7 +4,7 @@ image:
   registry: swr.af-south-1.myhuaweicloud.com
   org: george
   name: ecommerce-product
-  tag: "27dc492a4b5845fd9d9facca470c50a76c98e9e0"
+  tag: "b8e735cdaae188025ad90d06e33e35cd35b6a40e"
   pullPolicy: IfNotPresent
 
 imagePullSecrets:
