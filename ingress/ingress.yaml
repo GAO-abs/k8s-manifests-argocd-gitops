@@ -3,15 +3,13 @@ kind: Ingress
 metadata:
   name: ingress-demo
   annotations:
-    kubernetes.io/elb.id: d91694d7-e299-41c0-953d-5570a80ba015
-    kubernetes.io/elb.ip: 122.8.133.27
+    kubernetes.io/elb.id: <your-elb-id>
+    kubernetes.io/elb.ip: <your-elb-ip>
     kubernetes.io/elb.class: performance
-
-    # 🔹 ELB listener configuration (HTTP/HTTPS)
-    kubernetes.io/elb.listen-ports: '443'
+    kubernetes.io/elb.listen-ports: '443' #ELB Listener port
 
 spec:
-  ingressClassName: cce   # 👈 IMPORTANT: Huawei LoadBalancer ingress uses CCE class
+  ingressClassName: cce   # Huawei LoadBalancer ingress uses CCE class
 
   tls:
   - hosts:
